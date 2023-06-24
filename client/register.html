@@ -1,0 +1,79 @@
+<body>
+  <section class="container">
+    <link rel="stylesheet" href="./css/register.css" />
+    <div class="login-container">
+      <div class="circle circle-one"></div>
+
+      <div class="form-container">
+        <h1 class="opacity">Register Here</h1>
+        <form>
+          <input type="name" placeholder="Name" id="name" />
+          <input type="email" placeholder="Email" id="email" />
+          <input type="password" id="password" placeholder="Password" />
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" />
+          <button class="opacity" onclick="validateForm()" type="button">Register</button>
+        </form>
+      </div>
+      <div class="circle circle-two"></div>
+    </div>
+    <div class="theme-btn-container"></div>
+    <script>
+      // Redirect to tracker if token exists
+      if (localStorage.getItem("token")) {
+        window.location.href = "tracker.html";
+      }
+
+      // Theme button
+      const setTheme = (theme) => {
+        const root = document.querySelector(":root");
+        root.style.setProperty("--background", theme.background);
+        root.style.setProperty("--color", theme.color);
+        root.style.setProperty("--primary-color", theme.primaryColor);
+        root.style.setProperty("--glass-color", theme.glassColor);
+      };
+
+      // Validate Register Form and send request to server
+      function validateForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (!name || !email || !password || !confirmPassword) {
+          alert("Please fill in all the fields.");
+          return false;
+        }
+
+        if (password !== confirmPassword) {
+          alert("Passwords do not match. Please check and try again.");
+          return false;
+        }
+        // Send request to server to register
+        fetch(`http://localhost:3000/api/XUsers/register`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.error) {
+              alert(data.error);
+            } else {
+              localStorage.setItem("token", data.id);
+              window.location.href = "tracker.html";
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            alert("Something went wrong. Please try again later.");
+          });
+      }
+    </script>
+  </section>
+</body>

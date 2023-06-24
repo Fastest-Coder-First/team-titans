@@ -1,0 +1,53 @@
+{
+	"name": "FinanceHistory",
+	"base": "PersistedModel",
+	"idInjection": true,
+	"forceId": false,
+	"options": {
+		"validateUpsert": true
+	},
+	"properties": {
+		"date": {
+			"type": "date",
+			"required": true
+		},
+        "item": {
+			"type": "text",
+			"required": true
+		},
+        "amount": {
+			"type": "number",
+			"required": true
+		},
+        "type": {
+			"type": "text",
+			"required": true
+		}
+	},
+	"hidden": [
+	],
+	"relations": {
+		"XUser": {
+			"type": "belongsTo",
+			"model": "XUser",
+			"foreignKey": "userId"
+		}
+	},
+	"mixins": {
+		"TimeStamp": true
+	},
+    "acls": [
+        {
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$everyone",
+            "permission": "DENY"
+          }, {
+            "accessType": "EXECUTE",
+            "property": ["find", "create", "findById", "deleteById", "updateById", "count"],
+            "principalType": "ROLE",
+            "principalId": "GENERAL",
+            "permission": "ALLOW"
+          }
+    ]
+}

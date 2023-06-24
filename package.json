@@ -1,0 +1,39 @@
+{
+  "name": "team-titans",
+  "version": "0.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "start": "node .",
+    "dev": "set NODE_ENV=local && nodemon ."
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "compression": "^1.0.3",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.5.2",
+    "express-brute": "^1.0.1",
+    "form-data": "^2.3.3",
+    "helmet": "^3.21.2",
+    "log4js": "^3.0.6",
+    "loopback": "^3.28.0",
+    "loopback-boot": "^3.3.1",
+    "loopback-component-explorer": "^6.5.1",
+    "loopback-connector-esv6": "^2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "eslint": "^8.12.0",
+    "eslint-config-loopback": "^13.1.0",
+    "eslint-plugin-mocha": "^10.0.3",
+    "mocha": "^9.2.2"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "PRIVATE",
+  "description": "microsoft-hackathon"
+}

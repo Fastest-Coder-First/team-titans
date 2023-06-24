@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "sources": ["loopback/common/models", "loopback/server/models", "../common/models", "./models"],
+    "mixins": ["loopback/common/mixins", "loopback/server/mixins", "../common/mixins", "./mixins"]
+  },
+  "AccessToken": {
+    "dataSource": "sql",
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "XUser",
+        "foreignKey": "userId"
+      }
+    }
+  },
+  "ACL": {
+    "dataSource": "sql",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "sql",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "sql",
+    "public": false,
+    "acls": [
+      {
+        "accessType": "READ",
+        "principalType": "ROLE",
+        "principalId": "ADMIN",
+        "permission": "ALLOW"
+      },
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "DENY"
+      }
+    ]
+  },
+  "XUser": {
+    "dataSource": "sql",
+    "public": true
+  },
+  "FinanceHistory": {
+    "dataSource": "sql",
+    "public": true
+  },
+  "Balance": {
+    "dataSource": "sql",
+    "public": true
+  }
+}

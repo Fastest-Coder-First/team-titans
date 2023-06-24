@@ -1,0 +1,22 @@
+{
+  "environment": "local",
+  "restApiRoot": "/api",
+  "host": "0.0.0.0",
+  "port": 3000,
+  "aclErrorStatus": 403,
+  "remoting": {
+    "context": false,
+    "rest": { "handleErrors": false, "normalizeHttpPath": false, "xml": false },
+    "json": { "strict": false, "limit": "100mb" },
+    "urlencoded": { "extended": true, "limit": "100mb" },
+    "cors": false
+  },
+  "security": {
+    "trustProxy": false,
+    "rateLimiter": { "freeRetries": 10, "minWait": 10000, "maxWait": 900000 },
+    "dynamicTtlUntilEndOfDay": false,
+    "dynamicTtlOffset": 7200
+  },
+  "log": { "level": "debug" },
+  "connectors": {}
+}

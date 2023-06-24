@@ -23,6 +23,7 @@ const initSchemes = () => {
       'RoleMapping',
       'ACL',
       'FinanceHistory',
+      'Balance',
     ];
 
     let schemeCount = 0;

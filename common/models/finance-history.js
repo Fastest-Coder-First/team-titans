@@ -11,4 +11,26 @@ module.exports = function(FinanceHistory) {
       ctx.query.where = {createdBy: userId};
     }
   });
+
+  FinanceHistory.observe('after save', async (ctx) => {
+    const token = ctx.options && ctx.options.accessToken;
+    const userId = token && token.userId;
+    const balance = await FinanceHistory.app.models.Balance.findOne({
+      where: {
+        createdBy: userId,
+      },
+    });
+    if (balance) {
+      if (ctx.instance.type === 'income')
+        balance.balance = balance.balance + ctx.instance.amount;
+      else
+        balance.balance = balance.balance - ctx.instance.amount;
+      await balance.save();
+    } else {
+      await FinanceHistory.app.models.Balance.create({
+        balance: (ctx.instance.type === 'income') ? ctx.instance.amount : 0 - Number(ctx.instance.amount),
+        createdBy: userId,
+      });
+    }
+  });
 };

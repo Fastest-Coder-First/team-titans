@@ -50,5 +50,9 @@
   "FinanceHistory": {
     "dataSource": "sql",
     "public": true
+  },
+  "Balance": {
+    "dataSource": "sql",
+    "public": true
   }
 }

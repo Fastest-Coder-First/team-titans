@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Buddy</title>
+    <link rel="stylesheet" href="./css/tracker.css" />
+  </head>
+  <body>
+
+ <!-- dashboard content starts here @ azar  */ -->
+
+ <div class="dashboard">
+  <div class="dashboard-menu">
+    <div class="dashboard-header">
+      <h1>Dashboard</h1>
+    </div>
+    <ul>
+      <li><a href="/tracker.html">Home</a></li>
+      <li><a href="/analytics.html">Analytics</a></li>
+
+       <!-- External sight redirection@ azar  */ -->
+      <li><a href="https://www.ramseysolutions.com/budgeting/the-secret-to-saving-money" target="_blank">Tips on money saving</a></li>
+      <li><a href="login.html" onclick="logout()">Logout</a></li>
+    </ul>
+  </div>
+  <div class="dashboard-content">
+   </p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- main body starts here @ azar  */ -->
+
+    
+    <style>
+      body {
+        background-image: url("/assets/money1.jpeg");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
+
+
+    <div class="container" style="width: 1350px">
+      <iframe style="width: 100%" src="/assets/angular/index.html"></iframe>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <script src="./js/tracker.js"></script>
+    <script>
+      if (!localStorage.getItem('token')) {
+        window.location.href = 'login.html';
+      }
+
+      function logout() {
+        localStorage.removeItem('token');
+      }
+    </script>
+    
+    
+    <!-- footer here @ azar  */ --> 
+    <footer>
+    <p>&copy; All rights reserved @ 	&#128156; Azar.</p>
+  </footer>
+  </body>
+</html>

@@ -3,13 +3,18 @@
 const loopback = require('loopback');
 const boot = require('loopback-boot');
 const cookieParser = require('cookie-parser');
+const helmet = require('helmet');
 
 const logger = require('log4js').getLogger('server');
 
 const app = module.exports = loopback();
 
 app.use(cookieParser('ms-hackathon'));
-
+app.use(
+  helmet({
+    xFrameOptions: {action: 'sameorigin'},
+  }),
+);
 app.use(loopback.static('client'));
 
 app.start = function() {

@@ -19,6 +19,9 @@
         <div class="theme-btn-container"></div>
         <script src="./js/register.js"></script>
         <script>
+            if (localStorage.getItem('token')) {
+        window.location.href = 'tracker.html';
+      }
             function validateForm() {
                 var name = document.getElementById("name").value;
                 var email = document.getElementById("email").value;

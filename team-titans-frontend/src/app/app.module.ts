@@ -39,7 +39,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       { path: 'register',component: RegisterComponent },
       { path: '**', pathMatch: 'full', redirectTo: '' },
     ], {
-      useHash: true
+      useHash: false
     })
   ],
   providers: [

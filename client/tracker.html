@@ -19,12 +19,12 @@
       <h1>Dashboard</h1>
     </div>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Profile</a></li>
+      <li><a href="/tracker.html">Home</a></li>
+      <li><a href="/analytics.html">Analytics</a></li>
 
        <!-- External sight redirection@ azar  */ -->
-      <li><a href="https://www.ramseysolutions.com/budgeting/the-secret-to-saving-money">Tips on money saving</a></li>
-      <li><a href="#">Logout</a></li>
+      <li><a href="https://www.ramseysolutions.com/budgeting/the-secret-to-saving-money" target="_blank">Tips on money saving</a></li>
+      <li><a href="login.html" onclick="logout()">Logout</a></li>
     </ul>
   </div>
   <div class="dashboard-content">
@@ -51,7 +51,7 @@
     
     <style>
       body {
-        background-image: url("https://atos365-my.sharepoint.com/:i:/r/personal/mohammed-azarudeen_z_atos_net/Documents/Desktop/moneybg.jpg?csf=1&web=1&e=0pJUro");
+        background-image: url("/assets/money1.jpeg");
         background-size: cover;
         background-repeat: no-repeat;
       }
@@ -148,6 +148,15 @@
 
 
     <script src="./js/tracker.js"></script>
+    <script>
+      if (!localStorage.getItem('token')) {
+        window.location.href = 'login.html';
+      }
+
+      function logout() {
+        localStorage.removeItem('token');
+      }
+    </script>
     
     
     <!-- footer here @ azar  */ --> 

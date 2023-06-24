@@ -8,11 +8,7 @@
     <link rel="stylesheet" href="./css/tracker.css" />
   </head>
   <body>
-
-
-
  <!-- dashboard content starts here @ azar  */ -->
-
  <div class="dashboard">
   <div class="dashboard-menu">
     <div class="dashboard-header">
@@ -31,24 +27,8 @@
    </p>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  <!-- main body starts here @ azar  */ -->
 
-    
     <style>
       body {
         background-image: url("/assets/money1.jpeg");
@@ -56,8 +36,6 @@
         background-repeat: no-repeat;
       }
     </style>
-
-
     <div class="container">
       <div class="ledger">
         <h2>&#129417; Budget Buddy </h2>
@@ -83,20 +61,14 @@
             <label for="amount">Amount</label>
             <input type="number" name="amount" id="amount" placeholder="Enter the Amount" />
           </div>
-
 <!-- Date feature @ azar  */ -->
-
           <div class="date-field">
             <input type="date" id="date-input" class="date-input" />
             <label for="date-input" class="date-label">Select a Date</label>
           </div>
           <p id="selected-date"></p>
-          
          <!-- Date feature ends @ azar  */ --> 
-
           <button class="btn" type="submit">Add Transaction</button>
-          
-          
         </form>
       </div>
       <div class="transaction">
@@ -110,10 +82,8 @@
         </ul>
       </div>
     </div>
-
-
-     <!-- chat widget @ azar  */ -->
-
+    <!-- Create Chat widget -->
+    <!-- chat widget @ azar  */ -->
     <div class="chat-widget">
       <div class="chat-toggle-btn">Chat</div>
       <div class="chat-body">
@@ -127,41 +97,20 @@
         </div>
       </div>
     </div>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
+    <!-- chat widget ends @ azar  */ -->
     <script src="./js/tracker.js"></script>
     <script>
       if (!localStorage.getItem('token')) {
         window.location.href = 'login.html';
       }
-
       function logout() {
         localStorage.removeItem('token');
       }
     </script>
     
-    
     <!-- footer here @ azar  */ --> 
     <footer>
-    <p>&copy; All rights reserved @ 	&#128156; Azar.</p>
+    <p>&copy; All rights reserved @ 	&#128156; Team Titans</p>
   </footer>
   </body>
 </html>

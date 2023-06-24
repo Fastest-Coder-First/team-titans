@@ -10,9 +10,10 @@ import { BaseChartDirective } from 'ng2-charts';
 })
 export class PieComponent {
 
+  // reference to the base chart for the pie chart with data labels and legend
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
-  // Pie
+  // ng-charts configuration for the pie chart with data labels and legend
   public pieChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     plugins: {

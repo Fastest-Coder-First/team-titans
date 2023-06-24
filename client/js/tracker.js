@@ -1,5 +1,6 @@
 'use strict';
 
+// DOM elements
 const balance = document.querySelector('#balance');
 const inc_amt = document.querySelector('#inc-amt');
 const exp_amt = document.querySelector('#exp-amt');
@@ -11,6 +12,7 @@ const amount = document.querySelector('#amount');
 const localStorageTrans = JSON.parse(localStorage.getItem('trans'));
 let transactions = localStorage.getItem('trans') !== null ? localStorageTrans : [];
 
+// Load transactions from local storage and populate DOM list
 function loadTransactionDetails(transaction) {
   const sign = transaction.amount < 0 ? '-' : '+';
   const item = document.createElement('li');
@@ -24,6 +26,7 @@ function loadTransactionDetails(transaction) {
   trans.appendChild(item);
 }
 
+// Remove transaction by ID
 function removeTrans(id) {
   if (confirm('Are you sure you want to delete this transaction?')) {
     transactions = transactions.filter((transaction) => transaction.id != id);
@@ -32,23 +35,25 @@ function removeTrans(id) {
   }
 }
 
+// Edit transaction by ID
 function editTrans(id) {
   const transaction = transactions.find((transaction) => transaction.id == id);
   if (!transaction) return;
-
+  // Prompt for new description and amount
   const updatedDescription = prompt('Enter a new description:', transaction.description);
   if (updatedDescription === null) return;
-
+  // Prompt for new amount
   const updatedAmount = parseFloat(prompt('Enter a new amount:', transaction.amount));
   if (isNaN(updatedAmount)) return;
 
   transaction.description = updatedDescription;
   transaction.amount = updatedAmount;
-
+  // Update DOM
   config();
   updateLocalStorage();
 }
 
+// Update the balance, income and expense
 function updateAmount() {
   const amounts = transactions.map((transaction) => transaction.amount);
   const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
@@ -67,14 +72,17 @@ function updateAmount() {
   exp_amt.innerHTML = `₹ ${Math.abs(expense)}`;
 }
 
+// Initialize app
 function config() {
   trans.innerHTML = '';
   transactions.forEach(loadTransactionDetails);
   updateAmount();
 }
 
+// Add transaction
 function addTransaction(e) {
   e.preventDefault();
+  // Check if description and amount are not empty
   if (description.value.trim() == '' || amount.value.trim() == '') {
     alert('Please enter a description and amount.');
   } else {
@@ -96,6 +104,7 @@ function uniqueId() {
   return Math.floor(Math.random() * 10000000);
 }
 
+// Event listeners to add transaction
 form.addEventListener('submit', addTransaction);
 
 window.addEventListener('load', function() {
@@ -117,6 +126,7 @@ dashboardMenu.addEventListener('click', () => {
 
 /* js for Chat widget @ azar  */
 
+// DOM elements listener for chat widget
 document.addEventListener('DOMContentLoaded', function() {
   const chatWidget = document.querySelector('.chat-widget');
   const chatToggleBtn = chatWidget.querySelector('.chat-toggle-btn');

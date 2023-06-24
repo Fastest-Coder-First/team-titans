@@ -2,6 +2,7 @@
 const logger = require('log4js').getLogger('common/models/finance-history');
 
 module.exports = function(FinanceHistory) {
+  // Observe access to FinanceHistory
   FinanceHistory.observe('access', async (ctx) => {
     const token = ctx.options && ctx.options.accessToken;
     const userId = token && token.userId;
@@ -12,6 +13,7 @@ module.exports = function(FinanceHistory) {
     }
   });
 
+  // Observe after save to update balance
   FinanceHistory.observe('after save', async (ctx) => {
     const token = ctx.options && ctx.options.accessToken;
     const userId = token && token.userId;

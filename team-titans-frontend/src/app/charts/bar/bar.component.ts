@@ -10,8 +10,10 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
   styleUrls: ['./bar.component.scss']
 })
 export class BarComponent {
+  // reference to the base chart
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
+  // ng-charts configuration for the bar chart with data labels
   public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     elements: {
@@ -19,7 +21,6 @@ export class BarComponent {
         tension: 0.4
       }
     },
-    // We use these empty structures as placeholders for dynamic theming.
     scales: {
       x: {},
       y: {
@@ -41,6 +42,7 @@ export class BarComponent {
     DataLabelsPlugin
   ];
 
+  // chart data for the bar chart with data labels
   public barChartData: ChartData<'bar'> = {
     labels: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun' ],
     datasets: [
@@ -49,7 +51,6 @@ export class BarComponent {
     ]
   };
 
-  // events
   public chartClicked({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
     console.log(event, active);
   }

@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const axios = require('axios');
 
 module.exports = function(XUser) {
+  // Register a new user and return the access token
   XUser.register = async (credentials, req, res, ctx) => {
     const {name, email, password} = credentials;
     const userExists = await XUser.findOne({
@@ -35,6 +36,7 @@ module.exports = function(XUser) {
     return {...newUser.toJSON(), ...loginData.toJSON()};
   };
 
+  // Logout user by deleting the access token
   XUser.logout = async (tokenId) => {
     if (!tokenId) {
       const err = new Error('Accesstoken is required to logout');

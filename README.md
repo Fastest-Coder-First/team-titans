@@ -68,3 +68,7 @@
 
 This is a Minimal Viable Product (MVP) and does not represent the final product. We tried to implement the best in the given time frame
 
+## Budget Buddy - Demo
+
+https://github.com/Fastest-Coder-First/team-titans/assets/8607290/8bcc5e41-1324-40cc-a4d7-e485a90c6196
+

@@ -1,0 +1,31 @@
+{
+  "ids": {
+    "AccessToken": 3,
+    "ACL": 1,
+    "RoleMapping": 3,
+    "Role": 2,
+    "XUser": 3,
+    "FinanceHistory": 2
+  },
+  "models": {
+    "AccessToken": {
+      "ABcDDVLCqp3RKrL13rXU7iGkVQC08F7FlfttzX269mhasL7kZ52GLBffV6rla91K": "{\"id\":\"ABcDDVLCqp3RKrL13rXU7iGkVQC08F7FlfttzX269mhasL7kZ52GLBffV6rla91K\",\"ttl\":1209600,\"created\":\"2023-06-24T04:34:14.616Z\",\"userId\":2}",
+      "KNv59pLUr5497oZCdL6x8ON9fzxV0N6k8DswZ8u5irH5hf6etwYYdBwfOomxoVGJ": "{\"id\":\"KNv59pLUr5497oZCdL6x8ON9fzxV0N6k8DswZ8u5irH5hf6etwYYdBwfOomxoVGJ\",\"ttl\":1209600,\"created\":\"2023-06-24T04:35:16.366Z\",\"userId\":2}"
+    },
+    "ACL": {},
+    "RoleMapping": {
+      "1": "{\"principalType\":\"USER\",\"principalId\":\"1\",\"roleId\":1,\"id\":1}",
+      "2": "{\"principalType\":\"USER\",\"principalId\":\"2\",\"roleId\":1,\"id\":2}"
+    },
+    "Role": {
+      "1": "{\"name\":\"GENERAL\",\"description\":\"Basic User\",\"id\":1}"
+    },
+    "XUser": {
+      "1": "{\"name\":\"sarath\",\"email\":\"sk@sk\",\"password\":\"$2a$10$oj7uij5o3RXsv5D8WQjie.K6l7DpJkY.RhPYKaaOjoDffNaBHrhWm\",\"emailVerified\":true,\"updatedAt\":\"2023-06-24T04:29:14.879Z\",\"updatedBy\":0,\"id\":1}",
+      "2": "{\"name\":\"N/A\",\"email\":\"azar@azar\",\"password\":\"$2a$10$o6CpZb47TZkI2vK5QeEvxuwli4VLc0AG514u9hvsiDQcCw8DdJcmy\",\"createdAt\":\"2023-06-24T04:31:57.778Z\",\"updatedAt\":\"2023-06-24T04:31:57.778Z\",\"createdBy\":0,\"updatedBy\":0,\"id\":2}"
+    },
+    "FinanceHistory": {
+      "1": "{\"date\":\"2023-10-02T00:00:00.000Z\",\"item\":\"milk\",\"amount\":50,\"type\":\"expense\",\"createdAt\":\"2023-06-24T05:04:55.925Z\",\"updatedAt\":\"2023-06-24T05:04:55.925Z\",\"createdBy\":2,\"updatedBy\":2,\"id\":1}"
+    }
+  }
+}

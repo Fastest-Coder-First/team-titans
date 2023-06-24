@@ -10,6 +10,8 @@ const app = module.exports = loopback();
 
 app.use(cookieParser('ms-hackathon'));
 
+app.use(loopback.static('client'));
+
 app.start = function() {
   // start the web server
   return app.listen(function() {

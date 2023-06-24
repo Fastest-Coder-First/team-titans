@@ -2,9 +2,11 @@
 const logger = require('log4js').getLogger('common/models/x-user');
 const app = require.main.require('./server');
 const bcrypt = require('bcryptjs');
+const axios = require('axios');
 
 module.exports = function(XUser) {
-  XUser.register = async (email, password, req, res, ctx) => {
+  XUser.register = async (credentials, req, res, ctx) => {
+    const {name, email, password} = credentials;
     const userExists = await XUser.findOne({
       where: {
         email,
@@ -16,6 +18,7 @@ module.exports = function(XUser) {
       throw err;
     }
     const newUser = await XUser.create({
+      name,
       email,
       password: bcrypt.hashSync(password, 10),
     });
@@ -24,8 +27,12 @@ module.exports = function(XUser) {
       principalId: newUser.id,
       roleId: 1,
     });
+    const loginData = await XUser.login({
+      email,
+      password,
+    });
     logger.info(`User ${email} created successfully!`);
-    return newUser;
+    return {...newUser.toJSON(), ...loginData.toJSON()};
   };
 
   XUser.logout = async (tokenId) => {
@@ -85,18 +92,11 @@ module.exports = function(XUser) {
       verb: 'POST',
     },
     accepts: [{
-      arg: 'email',
-      type: 'string',
+      arg: 'credentials',
+      type: 'object',
       required: true,
       http: {
-        source: 'form',
-      },
-    }, {
-      arg: 'password',
-      type: 'string',
-      required: true,
-      http: {
-        source: 'form',
+        source: 'body',
       },
     }, {
       arg: 'req',

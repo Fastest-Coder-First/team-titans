@@ -1,0 +1,118 @@
+<html>
+
+<head>
+  <style>
+    /* used styling here as this is a small component so inline */
+    .container {
+      display: inline-block;
+      background-color: #f3e9bf;
+      border: 200px solid #ccc;
+      padding: 20px;
+      margin: 30px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      font-family: Arial, sans-serif;
+    }
+
+    .container p {
+      margin: 0;
+      font-size: 14px;
+      color: #555;
+    }
+    .container h3 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    .checkbox-container label {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .checkbox-container a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+   
+    #submit {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    #submit:hover {
+      background-color: #45a049;
+      b
+    }
+
+    /* Style the button when disabled */
+    #submit:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>You must agree to the terms and conditions to continue</h3>
+  
+    <div class="checkbox-container">
+      <input type="checkbox" id="agree">
+      <label for="agree">I agree to <a href="#">terms and conditions</a></label>
+    </div>
+    
+    <p>
+      <button id="submit" disabled>Submit</button>
+    </p>
+  </div>
+
+  <!-- same cmall copponent usinh inline js @ azar -->
+  <script>
+    // Get the checkbox element
+    const checkbox = document.querySelector("#agree");
+
+    // Get the button element
+    const button = document.querySelector("#submit");
+
+    
+    const checkStatus = () => {
+    
+      if (checkbox.checked) {
+        button.disabled = false;
+      }
+     
+      else {
+        button.disabled = true;
+      }
+    }
+
+    //  event listener to the checkbox to call the function on change
+    checkbox.addEventListener("change", checkStatus);
+
+ 
+    button.addEventListener("click", () => {
+      alert("Thanks for agreeing to the terms and conditions!");
+    });
+  </script>
+</body>
+
+</html>
